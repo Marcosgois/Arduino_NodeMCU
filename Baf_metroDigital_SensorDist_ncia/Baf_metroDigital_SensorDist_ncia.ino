@@ -4,7 +4,7 @@
 //oled 128 x 64
 
 SSD1306Wire  display(0x3c, D3, D5);
-int led = 16, smokeSensor = A0, smokeDigital = 4;
+int led = 16, smokeSensor = A0, smokeDigital = D4;
 
 void setup() {
   display.init();
@@ -29,7 +29,7 @@ void loop() {
   Serial.println(analogSensor);
   Serial.println(digitalRead(smokeDigital));
   display.setFont(ArialMT_Plain_10);
-  display.drawString(0, 54, "DRUNK");
+  display.drawString(0, 40, "DRUNK");
   display.display();
   delay(0.02);
   digitalWrite(led, !digitalRead(led));
@@ -59,4 +59,5 @@ void startSensor() {
     }
   }
 }
+
 
